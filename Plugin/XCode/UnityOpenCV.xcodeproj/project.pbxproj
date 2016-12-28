@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		402806D51E0A0C4E00BEA4AC /* FaceDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 402806D31E0A0C4E00BEA4AC /* FaceDetector.cpp */; };
+		402806E01E0A0D9D00BEA4AC /* libopencv_contrib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806DD1E0A0D9D00BEA4AC /* libopencv_contrib.dylib */; };
+		402806E11E0A0D9D00BEA4AC /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806DE1E0A0D9D00BEA4AC /* libopencv_core.dylib */; };
+		402806E21E0A0D9D00BEA4AC /* libopencv_features2d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806DF1E0A0D9D00BEA4AC /* libopencv_features2d.dylib */; };
+		402806E41E0A0DDF00BEA4AC /* libopencv_objdetect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806E31E0A0DDF00BEA4AC /* libopencv_objdetect.dylib */; };
+		402806EC1E0A0E0F00BEA4AC /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806EB1E0A0E0F00BEA4AC /* libopencv_imgproc.dylib */; };
+		402806EF1E0A0E6400BEA4AC /* PersonRecognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 402806ED1E0A0E6400BEA4AC /* PersonRecognizer.cpp */; };
+		402806F11E0A0EA200BEA4AC /* cascades in Resources */ = {isa = PBXBuildFile; fileRef = 402806F01E0A0EA200BEA4AC /* cascades */; };
+		402806F81E0A103A00BEA4AC /* libopencv_photo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806F71E0A103A00BEA4AC /* libopencv_photo.dylib */; };
+		402806F91E0A106500BEA4AC /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402806E91E0A0E0800BEA4AC /* libopencv_highgui.dylib */; };
+		407145CF1E0911A900A824C4 /* ImageInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145CD1E0911A900A824C4 /* ImageInfo.cpp */; };
+		407145D61E09123F00A824C4 /* PixelUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145D41E09123F00A824C4 /* PixelUtil.cpp */; };
+		407145DA1E09126F00A824C4 /* UnityHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145D81E09126F00A824C4 /* UnityHelpers.cpp */; };
+		407145DC1E09129200A824C4 /* Unity in Resources */ = {isa = PBXBuildFile; fileRef = 407145DB1E09129200A824C4 /* Unity */; };
+		407145DD1E09133D00A824C4 /* Plugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145BF1E0910C800A824C4 /* Plugin.cpp */; };
+		40BCED6D1E12F1C800969C10 /* OpenCVFaceAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		402806D31E0A0C4E00BEA4AC /* FaceDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceDetector.cpp; sourceTree = "<group>"; };
+		402806D41E0A0C4E00BEA4AC /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetector.h; sourceTree = "<group>"; };
+		402806D61E0A0D1F00BEA4AC /* libopencv_video.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_video.2.4.13.dylib"; sourceTree = "<group>"; };
+		402806D81E0A0D2D00BEA4AC /* libopencv_contrib.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_contrib.2.4.dylib"; sourceTree = "<group>"; };
+		402806DA1E0A0D3D00BEA4AC /* libopencv_objdetect.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_objdetect.2.4.13.dylib"; sourceTree = "<group>"; };
+		402806DD1E0A0D9D00BEA4AC /* libopencv_contrib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_contrib.dylib"; sourceTree = "<group>"; };
+		402806DE1E0A0D9D00BEA4AC /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_core.dylib"; sourceTree = "<group>"; };
+		402806DF1E0A0D9D00BEA4AC /* libopencv_features2d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_features2d.dylib"; sourceTree = "<group>"; };
+		402806E31E0A0DDF00BEA4AC /* libopencv_objdetect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_objdetect.dylib"; sourceTree = "<group>"; };
+		402806E51E0A0DEA00BEA4AC /* libopencv_photo.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.2.4.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_photo.2.4.dylib"; sourceTree = "<group>"; };
+		402806E71E0A0DFB00BEA4AC /* libopencv_video.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_video.dylib"; sourceTree = "<group>"; };
+		402806E91E0A0E0800BEA4AC /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_highgui.dylib"; sourceTree = "<group>"; };
+		402806EB1E0A0E0F00BEA4AC /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_imgproc.dylib"; sourceTree = "<group>"; };
+		402806ED1E0A0E6400BEA4AC /* PersonRecognizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PersonRecognizer.cpp; sourceTree = "<group>"; };
+		402806EE1E0A0E6400BEA4AC /* PersonRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRecognizer.h; sourceTree = "<group>"; };
+		402806F01E0A0EA200BEA4AC /* cascades */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cascades; sourceTree = "<group>"; };
+		402806F61E0A0FC400BEA4AC /* defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defs.h; sourceTree = "<group>"; };
+		402806F71E0A103A00BEA4AC /* libopencv_photo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_photo.dylib"; sourceTree = "<group>"; };
+		407145BF1E0910C800A824C4 /* Plugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Plugin.cpp; path = ../source/Plugin.cpp; sourceTree = "<group>"; };
+		407145C01E0910C800A824C4 /* Plugin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plugin.pch; path = ../source/Plugin.pch; sourceTree = "<group>"; };
+		407145C71E09110C00A824C4 /* UnityOpenCV.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnityOpenCV.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		407145C91E09110C00A824C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407145CD1E0911A900A824C4 /* ImageInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageInfo.cpp; sourceTree = "<group>"; };
+		407145CE1E0911A900A824C4 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfo.h; sourceTree = "<group>"; };
+		407145D01E0911FD00A824C4 /* mTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mTypes.h; sourceTree = "<group>"; };
+		407145D11E0911FD00A824C4 /* videoCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = videoCommon.h; sourceTree = "<group>"; };
+		407145D21E09120A00A824C4 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		407145D31E09122500A824C4 /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		407145D41E09123F00A824C4 /* PixelUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PixelUtil.cpp; sourceTree = "<group>"; };
+		407145D51E09123F00A824C4 /* PixelUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelUtil.h; sourceTree = "<group>"; };
+		407145D81E09126F00A824C4 /* UnityHelpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnityHelpers.cpp; sourceTree = "<group>"; };
+		407145D91E09126F00A824C4 /* UnityHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityHelpers.h; sourceTree = "<group>"; };
+		407145DB1E09129200A824C4 /* Unity */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Unity; sourceTree = "<group>"; };
+		407145DF1E0917A600A824C4 /* libopencv_core.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_core.2.4.13.dylib"; sourceTree = "<group>"; };
+		407145E01E0917A600A824C4 /* libopencv_features2d.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_features2d.2.4.13.dylib"; sourceTree = "<group>"; };
+		40BCED6B1E12F1AF00969C10 /* OpenCVFaceAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVFaceAPI.h; sourceTree = "<group>"; };
+		40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVFaceAPI.cpp; sourceTree = "<group>"; };
+		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		407145C41E09110C00A824C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402806E01E0A0D9D00BEA4AC /* libopencv_contrib.dylib in Frameworks */,
+				402806E41E0A0DDF00BEA4AC /* libopencv_objdetect.dylib in Frameworks */,
+				402806E11E0A0D9D00BEA4AC /* libopencv_core.dylib in Frameworks */,
+				402806E21E0A0D9D00BEA4AC /* libopencv_features2d.dylib in Frameworks */,
+				402806F81E0A103A00BEA4AC /* libopencv_photo.dylib in Frameworks */,
+				402806EC1E0A0E0F00BEA4AC /* libopencv_imgproc.dylib in Frameworks */,
+				402806F91E0A106500BEA4AC /* libopencv_highgui.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* XCodePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				402806F01E0A0EA200BEA4AC /* cascades */,
+				407145D71E09124400A824C4 /* Includes */,
+				08FB77ADFE841716C02AAC07 /* Source */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				407145C81E09110C00A824C4 /* UnityOpenCV */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+				407145DE1E0917A600A824C4 /* Frameworks */,
+			);
+			name = XCodePlugin;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D01CCD10486CAD60068D4B7 /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				402806F51E0A0EBD00BEA4AC /* FaceDetector */,
+				407145BF1E0910C800A824C4 /* Plugin.cpp */,
+				407145C01E0910C800A824C4 /* Plugin.pch */,
+				40BCED6B1E12F1AF00969C10 /* OpenCVFaceAPI.h */,
+				40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				407145C71E09110C00A824C4 /* UnityOpenCV.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		402806F51E0A0EBD00BEA4AC /* FaceDetector */ = {
+			isa = PBXGroup;
+			children = (
+				402806F61E0A0FC400BEA4AC /* defs.h */,
+				402806ED1E0A0E6400BEA4AC /* PersonRecognizer.cpp */,
+				402806EE1E0A0E6400BEA4AC /* PersonRecognizer.h */,
+				402806D31E0A0C4E00BEA4AC /* FaceDetector.cpp */,
+				402806D41E0A0C4E00BEA4AC /* FaceDetector.h */,
+			);
+			name = FaceDetector;
+			sourceTree = "<group>";
+		};
+		407145C81E09110C00A824C4 /* UnityOpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				407145C91E09110C00A824C4 /* Info.plist */,
+			);
+			path = UnityOpenCV;
+			sourceTree = "<group>";
+		};
+		407145D71E09124400A824C4 /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				407145DB1E09129200A824C4 /* Unity */,
+				407145D81E09126F00A824C4 /* UnityHelpers.cpp */,
+				407145D91E09126F00A824C4 /* UnityHelpers.h */,
+				407145D41E09123F00A824C4 /* PixelUtil.cpp */,
+				407145D51E09123F00A824C4 /* PixelUtil.h */,
+				407145D31E09122500A824C4 /* stdafx.h */,
+				407145D21E09120A00A824C4 /* common.h */,
+				407145D01E0911FD00A824C4 /* mTypes.h */,
+				407145D11E0911FD00A824C4 /* videoCommon.h */,
+				407145CD1E0911A900A824C4 /* ImageInfo.cpp */,
+				407145CE1E0911A900A824C4 /* ImageInfo.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+		407145DE1E0917A600A824C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				402806F71E0A103A00BEA4AC /* libopencv_photo.dylib */,
+				402806EB1E0A0E0F00BEA4AC /* libopencv_imgproc.dylib */,
+				402806E91E0A0E0800BEA4AC /* libopencv_highgui.dylib */,
+				402806E71E0A0DFB00BEA4AC /* libopencv_video.dylib */,
+				402806E51E0A0DEA00BEA4AC /* libopencv_photo.2.4.dylib */,
+				402806E31E0A0DDF00BEA4AC /* libopencv_objdetect.dylib */,
+				402806DD1E0A0D9D00BEA4AC /* libopencv_contrib.dylib */,
+				402806DE1E0A0D9D00BEA4AC /* libopencv_core.dylib */,
+				402806DF1E0A0D9D00BEA4AC /* libopencv_features2d.dylib */,
+				402806DA1E0A0D3D00BEA4AC /* libopencv_objdetect.2.4.13.dylib */,
+				402806D81E0A0D2D00BEA4AC /* libopencv_contrib.2.4.dylib */,
+				402806D61E0A0D1F00BEA4AC /* libopencv_video.2.4.13.dylib */,
+				407145DF1E0917A600A824C4 /* libopencv_core.2.4.13.dylib */,
+				407145E01E0917A600A824C4 /* libopencv_features2d.2.4.13.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		407145C61E09110C00A824C4 /* UnityOpenCV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407145CA1E09110C00A824C4 /* Build configuration list for PBXNativeTarget "UnityOpenCV" */;
+			buildPhases = (
+				407145C31E09110C00A824C4 /* Sources */,
+				407145C41E09110C00A824C4 /* Frameworks */,
+				407145C51E09110C00A824C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnityOpenCV;
+			productName = UnityOpenCV;
+			productReference = 407145C71E09110C00A824C4 /* UnityOpenCV.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				TargetAttributes = {
+					407145C61E09110C00A824C4 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "UnityOpenCV" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* XCodePlugin */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				407145C61E09110C00A824C4 /* UnityOpenCV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		407145C51E09110C00A824C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407145DC1E09129200A824C4 /* Unity in Resources */,
+				402806F11E0A0EA200BEA4AC /* cascades in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		407145C31E09110C00A824C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402806EF1E0A0E6400BEA4AC /* PersonRecognizer.cpp in Sources */,
+				402806D51E0A0C4E00BEA4AC /* FaceDetector.cpp in Sources */,
+				407145D61E09123F00A824C4 /* PixelUtil.cpp in Sources */,
+				40BCED6D1E12F1C800969C10 /* OpenCVFaceAPI.cpp in Sources */,
+				407145DA1E09126F00A824C4 /* UnityHelpers.cpp in Sources */,
+				407145DD1E09133D00A824C4 /* Plugin.cpp in Sources */,
+				407145CF1E0911A900A824C4 /* ImageInfo.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		407145CB1E09110C00A824C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					../includes,
+					"~/Documents/Development/opencv-2.4.13/include",
+					"~/Documents/Development/opencv-2.4.13/modules/**",
+				);
+				INFOPLIST_FILE = UnityOpenCV/Info.plist;
+				INSTALL_PATH = ./Deployment/;
+				LIBRARY_SEARCH_PATHS = "~/Documents/Development/opencv-2.4.13/buildMake/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrayy.UnityOpenCV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		407145CC1E09110C00A824C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					../includes,
+					"~/Documents/Development/opencv-2.4.13/include",
+					"~/Documents/Development/opencv-2.4.13/modules/**",
+				);
+				INFOPLIST_FILE = UnityOpenCV/Info.plist;
+				INSTALL_PATH = ./Deployment/;
+				LIBRARY_SEARCH_PATHS = "~/Documents/Development/opencv-2.4.13/buildMake/lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrayy.UnityOpenCV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		4FADC23808B4156C00ABE55E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = ./Deployment/;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4FADC23908B4156C00ABE55E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = ./Deployment/;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		407145CA1E09110C00A824C4 /* Build configuration list for PBXNativeTarget "UnityOpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407145CB1E09110C00A824C4 /* Debug */,
+				407145CC1E09110C00A824C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "UnityOpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23808B4156C00ABE55E /* Debug */,
+				4FADC23908B4156C00ABE55E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
