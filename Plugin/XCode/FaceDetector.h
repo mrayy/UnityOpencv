@@ -1,7 +1,3 @@
-/* 
- * File:   FaceDetector.h
- * Author: Eyal Arubas <EyalArubas at gmail>
- */
 
 #ifndef FACEDETECTOR_H
 #define	FACEDETECTOR_H

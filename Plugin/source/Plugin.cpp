@@ -1,6 +1,3 @@
-/*
-	This is a simple plugin, a bunch of functions that do simple things.
-*/
 
 #include "Plugin.pch"
 #include "OpenCVFaceAPI.h"
@@ -44,6 +41,20 @@ int RecognizeFace(void* ptr,float*face)
     OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
     if(f)
     {
+        return f->RecognizeFace(face);
     }
     return 0;
+}
+
+const char* GetFaceLabel(void*ptr,int ID)
+{
+    
+    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
+    if(f)
+    {
+        static string tmp;
+        tmp=f->GetFaceLabel(ID);
+        return tmp.c_str();
+    }
+    return "";
 }

@@ -15,54 +15,13 @@
 #include "opencv2/highgui.hpp"
 #include "opencv2/core.hpp"
 #include <cstdlib>
-
-void split(const std::string &s, char delim, std::vector<std::string> &elems) {
-    std::stringstream ss;
-    ss.str(s);
-    std::string item;
-    while (std::getline(ss, item, delim)) {
-        elems.push_back(item);
-    }
-}
-
-
-std::vector<std::string> split(const std::string &s, char delim) {
-    std::vector<std::string> elems;
-    split(s, delim, elems);
-    return elems;
-}
-
-void read_training_set(const string &list_path, vector<Mat> &images,vector<int>& labels) {
-    
-    ifstream file((list_path+"list").c_str());
-    string line;
-    string path;
-    int label;
-    while (getline(file, line)) {
-        std::vector<string> elems= split(line,':');
-        if(elems.size()==0)
-            continue;
-        path=elems[0];
-        if(elems.size()==1)
-        {
-            label=1;
-        }else
-            label=atoi(elems[1].c_str());;
-        images.push_back(imread(list_path+path, CV_LOAD_IMAGE_GRAYSCALE));
-        labels.push_back(label);
-    }
-}
-
 bool OpenCVFaceAPI::Init(const char* trainingPath)
 {
     fd=new FaceDetector(string(CASCADE_PATH), DET_SCALE_FACTOR, DET_MIN_NEIGHBORS, DET_MIN_SIZE_RATIO, DET_MAX_SIZE_RATIO);
     
-    string path=string(trainingPath);
-    if(path!="")
+    if(string(trainingPath)!="")
     {
-        read_training_set(path, training_set,training_labels);
-    
-        pr=new PersonRecognizer(training_set,training_labels, LBPH_RADIUS, LBPH_NEIGHBORS, LBPH_GRID_X, LBPH_GRID_Y, LBPH_THRESHOLD);
+        pr=new PersonRecognizer(trainingPath);
     
     }else
         pr=0;
@@ -82,7 +41,7 @@ void OpenCVFaceAPI::SetImage(video::ImageInfo* ifo)
     
     
 }
-int OpenCVFaceAPI::RecognizeFaces(float* f)
+int OpenCVFaceAPI::RecognizeFace(float* f)
 {
    
     if(pr==0)
@@ -94,7 +53,7 @@ int OpenCVFaceAPI::RecognizeFaces(float* f)
     double confidence = 0;
     
     //try to recognize the face:
-    int label=pr->recognize(face_img, confidence);
+    int label=pr->Recognize(face_img, confidence);
     
     
     return label;
@@ -121,4 +80,11 @@ int OpenCVFaceAPI::DetectFaces(float**pos)
     
     return (int)(faces.size());
     
+}
+
+std::string OpenCVFaceAPI::GetFaceLabel(int ID)
+{
+    if(pr==0)
+        return "";
+    return pr->GetLabel(ID);
 }

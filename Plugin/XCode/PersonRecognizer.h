@@ -1,7 +1,3 @@
-/* 
- * File:   PersonRecognizer.h
- * Author: Eyal Arubas <EyalArubas at gmail>
- */
 
 #ifndef PERSONRECOGNIZER_H
 #define	PERSONRECOGNIZER_H
@@ -18,11 +14,14 @@ using namespace cv;
 
 class PersonRecognizer {
 public:
-    PersonRecognizer(const vector<Mat> &imgs, const vector<int>& labels, int radius, int neighbors,
-            int grid_x, int grid_y, double threshold);
+    PersonRecognizer(const std::string& trainingPath);
     virtual ~PersonRecognizer();
-    int recognize(const Mat &face, double &confidence) const;
+    int Recognize(const Mat &face, double &confidence) const;
+    std::string GetLabel(int ID);
 private:
+    
+    void _loadLabels(const std::string& path);
+    map<int,std::string> _labels;
     Ptr<FaceRecognizer> _model;
     Size _faceSize;
 };

@@ -42,7 +42,9 @@ public:
     void Shutdown();
     
     void SetImage(video::ImageInfo* ifo);
-    int RecognizeFaces(float* face);
+    
     int DetectFaces(float**pos);
+    int RecognizeFace(float* face);
+    std::string GetFaceLabel(int ID);
 };
 #endif /* OpenCVFaceAPI_h */

@@ -1,7 +1,3 @@
-/* 
- * File:   FaceDetector.cpp
- * Author: Eyal Arubas <EyalArubas at gmail>
- */
 
 #include <vector>
 
