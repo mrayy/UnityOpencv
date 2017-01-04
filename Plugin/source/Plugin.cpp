@@ -1,6 +1,7 @@
 
 #include "Plugin.pch"
 #include "OpenCVFaceAPI.h"
+#include "ObjectTracker.hpp"
 
 void* CreateInstance(const char* trainingPath)
 {
@@ -57,4 +58,36 @@ const char* GetFaceLabel(void*ptr,int ID)
         return tmp.c_str();
     }
     return "";
+}
+
+void* ObjectTracker_Create()
+{
+    return new ObjectTracker();
+}
+
+void ObjectTracker_Destroy(void* ptr)
+{
+    ObjectTracker* o=(ObjectTracker*)ptr;
+    delete o;
+    
+}
+
+void ObjectTracker_BindImage(void* ptr,ImageInfo* ifo)
+{
+    
+    ObjectTracker* f=(ObjectTracker*)ptr;
+    if(f)
+    {
+        f->SetImage(ifo);
+    }
+}
+
+bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,float& retX,float& retY)
+{
+    ObjectTracker* f=(ObjectTracker*)ptr;
+    if(f)
+    {
+        return f->Detect(ifo,retX,retY);
+    }
+    return false;
 }
