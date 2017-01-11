@@ -3,18 +3,28 @@
 #include "PersonRecognizer.h"
 #include <fstream>
 #include "Utilities.hpp"
+#include <opencv/highgui.h>
 
 PersonRecognizer::PersonRecognizer(const std::string& trainingPath) {
    
     //load labels ids
     _loadLabels(trainingPath+"labels.txt");
     //build recognizer model:
-    _model = createEigenFaceRecognizer();
+    //_model = createEigenFaceRecognizer();
+    _model=createLBPHFaceRecognizer();
     _model->load(trainingPath+"training.xml");
     
 }
 
 PersonRecognizer::~PersonRecognizer() {}
+
+void PersonRecognizer::bindImage(const Mat& img){
+    _img=img;
+    // equalizeHist(_img, _img);
+    cv::flip(_img,_img,0);
+    //cv::imwrite("/Users/yamen.s/Documents/img.jpg",_img);
+    
+}
 
 void PersonRecognizer::_loadLabels(const std::string& path)
 {
@@ -43,12 +53,17 @@ void PersonRecognizer::_loadLabels(const std::string& path)
     }
     stream.close();
 }
-int PersonRecognizer::Recognize(const Mat &face, double &confidence) const {
-    Mat gray(face);
+int PersonRecognizer::Recognize(float &confidence,float* f) const {
     int label=-1;
     //cvtColor(face, gray, CV_BGR2GRAY);
-    resize(gray, gray, _faceSize);
-    _model->predict(gray, label, confidence);
+    
+    Rect face=Rect(f[0],f[1],f[2],f[3]);
+    Mat face_img = _img(face);
+    resize(face_img, face_img, _faceSize);
+    //try to recognize the face:
+    double conf;
+    _model->predict(face_img, label, conf);
+    confidence=conf;
     return label;
 }
 std::string PersonRecognizer::GetLabel(int ID)

@@ -31,7 +31,9 @@ ObjectTracker::~ObjectTracker()
 void ObjectTracker::SetImage(video::ImageInfo* ifo)
 {
     _srcImg=cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData).clone();
-     cv::equalizeHist(_srcImg,_srcImg);
+    cv::equalizeHist(_srcImg,_srcImg);
+    cv::flip(_srcImg,_srcImg,0);
+    //cv::imwrite("/Users/yamen.s/Documents/img.jpg",_img);
     _detector->detect(_srcImg, _objectKeypoints);
     _extractor->compute(_srcImg, _objectKeypoints, _objectDescriptors);
     //if(_objectDescriptors.type()!=CV_8U)
@@ -42,6 +44,7 @@ bool ObjectTracker::Detect(video::ImageInfo* ifo,float& retX,float& retY)
 {
     cv::Mat scene=cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData);
     cv::equalizeHist(scene,scene );
+    cv::flip(scene,scene,0);
     
     std::vector<KeyPoint> sceneKeypoints;
     cv::Mat sceneDescriptors;
@@ -56,8 +59,8 @@ bool ObjectTracker::Detect(video::ImageInfo* ifo,float& retX,float& retY)
     
     //if(sceneDescriptors.type()!=CV_8U)
     //    sceneDescriptors.convertTo(sceneDescriptors, CV_8U);
-    //cv::FlannBasedMatcher matcher(new flann::LshIndexParams(20, 10, 2));
-    cv::BFMatcher matcher(cv::NORM_HAMMING);
+    cv::FlannBasedMatcher matcher(new flann::LshIndexParams(20, 10, 2)); //https://github.com/opencv/opencv/issues/5937
+    //cv::BFMatcher matcher(cv::NORM_HAMMING);
    // matcher.match(_objectDescriptors, sceneDescriptors, matches);
     matcher.knnMatch(_objectDescriptors, sceneDescriptors, matches, 2);
     
@@ -83,7 +86,7 @@ bool ObjectTracker::Detect(video::ImageInfo* ifo,float& retX,float& retY)
 
     for( int i = 0; i < _objectDescriptors.rows; i++ )
     {
-         if(matches[i][0].distance <=nndrRatio * matches[i][1].distance)
+         if(matches[i].size()>=2 && matches[i][0].distance <=nndrRatio * matches[i][1].distance)
          {
              good_matches.push_back(matches[i][0]);
          }

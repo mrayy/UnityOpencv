@@ -16,9 +16,12 @@ class PersonRecognizer {
 public:
     PersonRecognizer(const std::string& trainingPath);
     virtual ~PersonRecognizer();
-    int Recognize(const Mat &face, double &confidence) const;
+    int Recognize( float &confidence,float* f) const;
     std::string GetLabel(int ID);
+    
+    void bindImage(const Mat& img);
 private:
+    Mat _img;
     
     void _loadLabels(const std::string& path);
     map<int,std::string> _labels;

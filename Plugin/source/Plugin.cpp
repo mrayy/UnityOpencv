@@ -1,64 +1,51 @@
 
 #include "Plugin.pch"
-#include "OpenCVFaceAPI.h"
+#include "defs.h"
 #include "ObjectTracker.hpp"
+#include "FaceDetector.h"
+#include "PersonRecognizer.h"
 
-void* CreateInstance(const char* trainingPath)
+void* FaceDetector_Create()
 {
-    OpenCVFaceAPI* f= new OpenCVFaceAPI();
-    f->Init(trainingPath);
-    return f;
+    return new FaceDetector(string(CASCADE_PATH), DET_SCALE_FACTOR, DET_MIN_NEIGHBORS, DET_MIN_SIZE_RATIO, DET_MAX_SIZE_RATIO);
 }
-void DestroyInstance(void* ptr)
+void FaceDetector_Destroy(void* ptr)
 {
-    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
-    if(f)
-    {
-        delete f;
-        f=0;
-    }
+    delete (FaceDetector*)ptr;
 }
-void BindImage(void* ptr,ImageInfo* ifo)
-{
-    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
-    if(f)
-    {
-        f->SetImage(ifo);
-    }
+void FaceDetector_BindImage(void* ptr,ImageInfo* ifo){
+    ((FaceDetector*)ptr)->bindImage(cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData));
 }
-int DetectFaces(void* ptr,float**pos)
-{
+int FaceDetector_DetectFaces(void* ptr,float**pos){
     
-    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
-    if(f)
-    {
-        return f->DetectFaces(pos);
-    }
-    return 0;
-}
-int RecognizeFace(void* ptr,float*face)
-{
-    
-    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
-    if(f)
-    {
-        return f->RecognizeFace(face);
-    }
-    return 0;
+    return ((FaceDetector*)ptr)->findFaces(pos);
+
 }
 
-const char* GetFaceLabel(void*ptr,int ID)
+
+void* FaceRecognizer_Create(const char* trainingPath)
+{
+    return new PersonRecognizer(trainingPath);
+}
+void FaceRecognizer_Destroy(void* ptr)
+{
+    delete (PersonRecognizer*)ptr;
+}
+void FaceRecognizer_BindImage(void* ptr,ImageInfo* ifo)
+{
+    return ((PersonRecognizer*)ptr)->bindImage(cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData));
+}
+int FaceRecognizer_Recognize(void* ptr,float& confidence,float*face)
+{
+    return ((PersonRecognizer*)ptr)->Recognize(confidence,face);
+}
+const char* FaceRecognizer_GetLabel(void*ptr,int ID)
 {
     
-    OpenCVFaceAPI* f=(OpenCVFaceAPI*)ptr;
-    if(f)
-    {
-        static string tmp;
-        tmp=f->GetFaceLabel(ID);
-        return tmp.c_str();
-    }
-    return "";
+    return ((PersonRecognizer*)ptr)->GetLabel(ID).c_str();
 }
+
+
 
 void* ObjectTracker_Create()
 {

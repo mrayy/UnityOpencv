@@ -12,7 +12,7 @@
 
 /** Face detector: **/
 #define DET_SCALE_FACTOR   1.02
-#define DET_MIN_NEIGHBORS  4
+#define DET_MIN_NEIGHBORS  8
 #define DET_MIN_SIZE_RATIO 0.06
 #define DET_MAX_SIZE_RATIO 0.18
 

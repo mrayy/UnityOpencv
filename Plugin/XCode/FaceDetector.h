@@ -19,13 +19,19 @@ public:
             double minSizeRatio,
             double maxSizeRatio);
     virtual ~FaceDetector();
-    void findFacesInImage(const Mat &img, vector<Rect> &res);
+    
+    void bindImage(const Mat& img);
+    int findFaces(float** faces);//vector<Rect> &res);
 private:
+    Mat _img;
     CascadeClassifier _cascade;
     double _scaleFactor;
     int    _minNeighbors;
     double _minSizeRatio;
     double _maxSizeRatio;
+    
+    vector<Rect> faces;
+    vector<float> facePosArr;
 };
 
 #endif	/* FACEDETECTOR_H */

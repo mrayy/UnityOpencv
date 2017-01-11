@@ -10,5 +10,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "PersonRecognizer::Recognize(float&amp;, float*) const:PersonRecognizer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "f[1]">
+            </PersistentString>
+            <PersistentString
+               value = "f[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

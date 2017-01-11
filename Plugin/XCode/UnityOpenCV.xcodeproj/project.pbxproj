@@ -27,7 +27,6 @@
 		407145DA1E09126F00A824C4 /* UnityHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145D81E09126F00A824C4 /* UnityHelpers.cpp */; };
 		407145DC1E09129200A824C4 /* Unity in Resources */ = {isa = PBXBuildFile; fileRef = 407145DB1E09129200A824C4 /* Unity */; };
 		407145DD1E09133D00A824C4 /* Plugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 407145BF1E0910C800A824C4 /* Plugin.cpp */; };
-		40BCED6D1E12F1C800969C10 /* OpenCVFaceAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +74,6 @@
 		407145DB1E09129200A824C4 /* Unity */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Unity; sourceTree = "<group>"; };
 		407145DF1E0917A600A824C4 /* libopencv_core.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_core.2.4.13.dylib"; sourceTree = "<group>"; };
 		407145E01E0917A600A824C4 /* libopencv_features2d.2.4.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.4.13.dylib; path = "../../../../opencv-2.4.13/buildMake/lib/libopencv_features2d.2.4.13.dylib"; sourceTree = "<group>"; };
-		40BCED6B1E12F1AF00969C10 /* OpenCVFaceAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVFaceAPI.h; sourceTree = "<group>"; };
-		40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVFaceAPI.cpp; sourceTree = "<group>"; };
 		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,8 +137,6 @@
 				402806F51E0A0EBD00BEA4AC /* FaceDetector */,
 				407145BF1E0910C800A824C4 /* Plugin.cpp */,
 				407145C01E0910C800A824C4 /* Plugin.pch */,
-				40BCED6B1E12F1AF00969C10 /* OpenCVFaceAPI.h */,
-				40BCED6C1E12F1C800969C10 /* OpenCVFaceAPI.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -298,7 +293,6 @@
 				403805171E1C8088003AA52D /* ObjectTracker.cpp in Sources */,
 				4055941D1E1474FE00394DE7 /* Utilities.cpp in Sources */,
 				407145D61E09123F00A824C4 /* PixelUtil.cpp in Sources */,
-				40BCED6D1E12F1C800969C10 /* OpenCVFaceAPI.cpp in Sources */,
 				407145DA1E09126F00A824C4 /* UnityHelpers.cpp in Sources */,
 				407145DD1E09133D00A824C4 /* Plugin.cpp in Sources */,
 				407145CF1E0911A900A824C4 /* ImageInfo.cpp in Sources */,
