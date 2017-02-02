@@ -12,7 +12,11 @@ PersonRecognizer::PersonRecognizer(const std::string& trainingPath) {
     //build recognizer model:
     //_model = createEigenFaceRecognizer();
     _model=createLBPHFaceRecognizer();
-    _model->load(trainingPath+"training.xml");
+	try
+	{
+		_model->load(trainingPath + "training.xml");
+	}catch(std::exception&e)
+	{ }
     
 }
 
@@ -66,10 +70,11 @@ int PersonRecognizer::Recognize(float &confidence,float* f) const {
     confidence=conf;
     return label;
 }
-std::string PersonRecognizer::GetLabel(int ID)
+
+const char* PersonRecognizer::GetLabel(int ID)
 {
     map<int,std::string>::iterator it= _labels.find(ID);
     if(it==_labels.end())
         return "";
-    return it->second;
+    return it->second.c_str();
 }

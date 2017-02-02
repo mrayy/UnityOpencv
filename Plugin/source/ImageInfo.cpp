@@ -3,6 +3,7 @@
 #include "ImageInfo.h"
 #include <memory>
 
+#include <opencv2\core\types_c.h>
 #include "PixelUtil.h"
 
 
@@ -44,7 +45,7 @@ void ImageInfo::setData(const void*data, const Vector2d&size, EPixelFormat forma
 		this->format=format;
 		imageDataSize=Size.x*Size.y*PixelUtil::getPixelDescription(format).elemSizeB;
 		if(imageDataSize>0)
-			imageData=new uchar[imageDataSize];
+			imageData=new unsigned char[imageDataSize];
 		else
 			return;
 
@@ -103,8 +104,8 @@ void ImageInfo::copyCroppedFrom(const ImageInfo* src,Vector2d pos,Vector2d sz,bo
         int srcRowpitch=src->Size.x;
         int rowpitch=sz.x;
         
-        const uchar* srcPtr0=src->imageData;
-        uchar* dstPtr=imageData;
+        const unsigned char* srcPtr0=src->imageData;
+        unsigned char* dstPtr=imageData;
         
         int y0=pos.y;
         int srcOffset=y0*srcRowpitch;
@@ -116,7 +117,7 @@ void ImageInfo::copyCroppedFrom(const ImageInfo* src,Vector2d pos,Vector2d sz,bo
             }
             srcOffset=y0*srcRowpitch;
 
-            const uchar* srcPtr=srcPtr0+srcOffset;
+            const unsigned char* srcPtr=srcPtr0+srcOffset;
             if(!wrapX)
             {
                 memcpy(dstPtr,srcPtr+pos.x,rowpitch);
@@ -153,13 +154,13 @@ void ImageInfo::FlipImage(bool horizontal,bool vertical)
     if(vertical)
         Rows/=2;
     
-    int rowPitch=(imageDataSize/Size.y)*sizeof(uchar);
+    int rowPitch=(imageDataSize/Size.y)*sizeof(unsigned char);
     
-    uchar* newData=new uchar[imageDataSize];
+    unsigned char* newData=new unsigned char[imageDataSize];
     
     
-    uchar* srcPtr=imageData;
-    uchar* dstPtr=newData;
+    unsigned char* srcPtr=imageData;
+    unsigned char* dstPtr=newData;
     
     int y0=0;
     int y1=(Size.y-1)*rowPitch;
@@ -169,16 +170,16 @@ void ImageInfo::FlipImage(bool horizontal,bool vertical)
         if(vertical)
         {
             //flip rows contents
-            memcpy(dstPtr+y0,srcPtr+y1,rowPitch*sizeof(uchar));
-            memcpy(dstPtr+y1,srcPtr+y0,rowPitch*sizeof(uchar));
+            memcpy(dstPtr+y0,srcPtr+y1,rowPitch*sizeof(unsigned char));
+            memcpy(dstPtr+y1,srcPtr+y0,rowPitch*sizeof(unsigned char));
         }
         if(horizontal)
         {
-            uchar* ptr0=dstPtr+y0;
-            uchar* ptr1=dstPtr+y0+rowPitch-1;
+            unsigned char* ptr0=dstPtr+y0;
+            unsigned char* ptr1=dstPtr+y0+rowPitch-1;
             for(int x=0;x<Cols;++x)
             {
-                uchar t=*ptr0;
+                unsigned char t=*ptr0;
                 *ptr0=*ptr1;
                 *ptr1=t;
                 ++ptr0;
@@ -212,16 +213,16 @@ void ImageInfo::createData(const Vector2d& size, EPixelFormat format){
 
 	imageDataSize=Size.x*Size.y*PixelUtil::getPixelDescription(format).elemSizeB;
 	if(imageDataSize>0){
-		imageData=new uchar[imageDataSize];
+		imageData=new unsigned char[imageDataSize];
 		//mraySystem::memSet(imageData,0,imageDataSize);
 	}
 }
 
-uchar*ImageInfo::getSurface(int d){
+unsigned char*ImageInfo::getSurface(int d){
 	return imageData+(Size.x*Size.y*PixelUtil::getPixelDescription(format).elemSizeB);
 }
 
-const uchar*ImageInfo::getSurface(int d)const
+const unsigned char*ImageInfo::getSurface(int d)const
 {
 	return imageData+(Size.x*Size.y*PixelUtil::getPixelDescription(format).elemSizeB);
 }

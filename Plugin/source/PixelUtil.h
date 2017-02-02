@@ -24,14 +24,14 @@ namespace mray{
 		struct PixelDescriptor
 		{
 			std::string name;
-			uchar elemSizeB;	//element Size in Bytes
+			unsigned char elemSizeB;	//element Size in Bytes
 
 			uint flags;//see EPixelFlags
 			EPixel_TYPE type;
-			uchar componentsCount;
-			uchar RBits, GBits, BBits, ABits;
+			unsigned char componentsCount;
+			unsigned char RBits, GBits, BBits, ABits;
 			uint RMask, GMask, BMask, AMask;
-			uchar RShift, GShift, BShift, AShift;
+			unsigned char RShift, GShift, BShift, AShift;
 
 		};
 
@@ -49,7 +49,7 @@ namespace mray{
 
 			//get a color from src data based on pixel format and return number of bytes 
 			//that reprsents the color size
-			static int unpackColor(const uchar*src, EPixelFormat f, float &r, float &g, float&b, float&a);
+			static int unpackColor(const unsigned char*src, EPixelFormat f, float &r, float &g, float&b, float&a);
 
 		};
 

@@ -5,20 +5,19 @@
 
 namespace mray{
 
-typedef unsigned	char	uchar;
-typedef signed		char	schar;
+//typedef unsigned	char	unsigned char;
+//typedef signed		char	schar;
 
 typedef unsigned	int		uint;
 typedef signed		int		sint;
 
-typedef unsigned	short	ushort;
+//typedef unsigned	short	unsigned short;
 typedef signed		short	sshort;
 
 typedef unsigned	long	ulong;
 typedef unsigned	long long	ullong;
 typedef signed		long	slong;
-
-typedef uchar utf8;
+//typedef unsigned char utf8;
 typedef uint utf32;
 
 

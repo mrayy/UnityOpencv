@@ -17,7 +17,7 @@ public:
     PersonRecognizer(const std::string& trainingPath);
     virtual ~PersonRecognizer();
     int Recognize( float &confidence,float* f) const;
-    std::string GetLabel(int ID);
+    const char* GetLabel(int ID);
     
     void bindImage(const Mat& img);
 private:

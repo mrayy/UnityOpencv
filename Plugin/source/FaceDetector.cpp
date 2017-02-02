@@ -17,14 +17,14 @@ FaceDetector::FaceDetector(
 FaceDetector::~FaceDetector() {}
 
 void FaceDetector::bindImage(const Mat& img){
-    equalizeHist(img, _img);
-    cv::flip(_img,_img,0);
-    //cv::imwrite("/Users/yamen.s/Documents/img.jpg",_img);
+    //equalizeHist(img, _img);
+    cv::flip(img,_img,0);
+    //cv::imwrite("img.jpg",_img);
 }
 int FaceDetector::findFaces(float** pos) {
     
-    Size minScaleSize = Size(60, 60), //at least 60x60 face size, to avoid noisy results
-         maxScaleSize = Size(300,300);
+	Size minScaleSize = Size(_img.cols*_minSizeRatio, _img.rows*_minSizeRatio),// Size(70, 70), //at least 60x60 face size, to avoid noisy results
+         maxScaleSize = Size(_img.cols*_maxSizeRatio, _img.rows*_maxSizeRatio);
     
     
     //clear the vector:

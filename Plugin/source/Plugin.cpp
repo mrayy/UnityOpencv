@@ -1,65 +1,66 @@
 
-#include "Plugin.pch"
+#include "Plugin.h"
 #include "defs.h"
 #include "ObjectTracker.hpp"
 #include "FaceDetector.h"
 #include "PersonRecognizer.h"
+#include "DarkNetDetector.h"
 
-void* FaceDetector_Create()
+UNITY_INTERFACE_EXPORT void* FaceDetector_Create(const char* cascadePath, float scaler,int minNeighbors, float minScaler, float maxScaler)
 {
-    return new FaceDetector(string(CASCADE_PATH), DET_SCALE_FACTOR, DET_MIN_NEIGHBORS, DET_MIN_SIZE_RATIO, DET_MAX_SIZE_RATIO);
+    return new FaceDetector(string(cascadePath), scaler, minNeighbors, minScaler, maxScaler);
 }
-void FaceDetector_Destroy(void* ptr)
+UNITY_INTERFACE_EXPORT void FaceDetector_Destroy(void* ptr)
 {
     delete (FaceDetector*)ptr;
 }
-void FaceDetector_BindImage(void* ptr,ImageInfo* ifo){
+UNITY_INTERFACE_EXPORT void FaceDetector_BindImage(void* ptr,ImageInfo* ifo){
     ((FaceDetector*)ptr)->bindImage(cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData));
 }
-int FaceDetector_DetectFaces(void* ptr,float**pos){
+UNITY_INTERFACE_EXPORT int FaceDetector_DetectFaces(void* ptr,float**pos){
     
     return ((FaceDetector*)ptr)->findFaces(pos);
 
 }
 
 
-void* FaceRecognizer_Create(const char* trainingPath)
+UNITY_INTERFACE_EXPORT void* FaceRecognizer_Create(const char* trainingPath)
 {
     return new PersonRecognizer(trainingPath);
 }
-void FaceRecognizer_Destroy(void* ptr)
+UNITY_INTERFACE_EXPORT void FaceRecognizer_Destroy(void* ptr)
 {
     delete (PersonRecognizer*)ptr;
 }
-void FaceRecognizer_BindImage(void* ptr,ImageInfo* ifo)
+UNITY_INTERFACE_EXPORT void FaceRecognizer_BindImage(void* ptr,ImageInfo* ifo)
 {
     return ((PersonRecognizer*)ptr)->bindImage(cv::Mat(ifo->Size.x,ifo->Size.y,CV_8U,(void*)ifo->imageData));
 }
-int FaceRecognizer_Recognize(void* ptr,float& confidence,float*face)
+UNITY_INTERFACE_EXPORT int FaceRecognizer_Recognize(void* ptr,float& confidence,float*face)
 {
     return ((PersonRecognizer*)ptr)->Recognize(confidence,face);
 }
-const char* FaceRecognizer_GetLabel(void*ptr,int ID)
+UNITY_INTERFACE_EXPORT const char* FaceRecognizer_GetLabel(void*ptr,int ID)
 {
     
-    return ((PersonRecognizer*)ptr)->GetLabel(ID).c_str();
+    return ((PersonRecognizer*)ptr)->GetLabel(ID);
 }
 
 
 
-void* ObjectTracker_Create()
+UNITY_INTERFACE_EXPORT void* ObjectTracker_Create()
 {
     return new ObjectTracker();
 }
 
-void ObjectTracker_Destroy(void* ptr)
+UNITY_INTERFACE_EXPORT void ObjectTracker_Destroy(void* ptr)
 {
     ObjectTracker* o=(ObjectTracker*)ptr;
     delete o;
     
 }
 
-void ObjectTracker_BindImage(void* ptr,ImageInfo* ifo)
+UNITY_INTERFACE_EXPORT void ObjectTracker_BindImage(void* ptr,ImageInfo* ifo)
 {
     
     ObjectTracker* f=(ObjectTracker*)ptr;
@@ -69,7 +70,7 @@ void ObjectTracker_BindImage(void* ptr,ImageInfo* ifo)
     }
 }
 
-bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,float& retX,float& retY)
+UNITY_INTERFACE_EXPORT bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,float& retX,float& retY)
 {
     ObjectTracker* f=(ObjectTracker*)ptr;
     if(f)
@@ -77,4 +78,34 @@ bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,float& retX,float& retY
         return f->Detect(ifo,retX,retY);
     }
     return false;
+}
+
+
+UNITY_INTERFACE_EXPORT void* DN_Create(const char* datacfg, const char* cfgfile, const char* weightfile, float threshold, int gpuIndex) {
+	
+	DarknetDetector* inst = new DarknetDetector(datacfg,cfgfile,weightfile,threshold,gpuIndex);
+
+	return inst;
+}
+UNITY_INTERFACE_EXPORT void DN_Destroy(void* ptr)
+{
+
+	DarknetDetector* inst = (DarknetDetector*)ptr;
+	delete inst;
+}
+UNITY_INTERFACE_EXPORT void DN_BindImage(void* ptr, ImageInfo* ifo)
+{
+	DarknetDetector* inst = (DarknetDetector*)ptr;
+	inst->bindImage(ifo);
+}
+UNITY_INTERFACE_EXPORT int DN_Predict(void* ptr, float**regions, float**prob, int**classes) {
+
+	DarknetDetector* inst = (DarknetDetector*)ptr;
+	return inst->Predict(regions,prob,classes);
+}
+UNITY_INTERFACE_EXPORT char* DN_GetClass(void* ptr, int ID)
+{
+	DarknetDetector* inst = (DarknetDetector*)ptr;
+	return inst->GetClassName( ID);
+
 }

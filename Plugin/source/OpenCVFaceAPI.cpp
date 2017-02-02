@@ -50,7 +50,7 @@ int OpenCVFaceAPI::RecognizeFace(float* f)
     Rect face=Rect(f[0],f[1],f[2],f[3]);
     Mat face_img = _internalImage(face);
     bool face_match = false;
-    double confidence = 0;
+    float confidence = 0;
     
     //try to recognize the face:
     int label=pr->Recognize(face_img, confidence);

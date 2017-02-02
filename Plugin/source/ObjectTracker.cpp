@@ -12,7 +12,7 @@
 #include <opencv2/nonfree/features2d.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include <unistd.h>
+//#include <unistd.h>
 
 bool _debug=false;
 
@@ -156,6 +156,8 @@ bool ObjectTracker::Detect(video::ImageInfo* ifo,float& retX,float& retY)
             line( img_matches, scene_corners[3] + Point2f( _srcImg.cols, 0), scene_corners[0] + Point2f( _srcImg.cols, 0), Scalar( 0, 255, 0), 4 );
             circle(img_matches,points[0] + Point2f( _srcImg.cols, 0), 4, cv::Scalar(255, 100, 100));
             imshow( "matches", img_matches );
+
+			cv::waitKey(1);
             //  usleep( 5 * 1000 );
         }
     }

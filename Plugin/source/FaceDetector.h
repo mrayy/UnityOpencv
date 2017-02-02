@@ -10,6 +10,14 @@
 using namespace std;
 using namespace cv;
 
+class FaceTemplate
+{
+public:
+	int ID;
+	Mat _template;
+	float timeout;
+};
+
 class FaceDetector {
 public:
     FaceDetector(

@@ -41,8 +41,8 @@ public:
     
     void FlipImage(bool horizontal,bool vertical);
 
-	uchar*getSurface(int d);
-	const uchar*getSurface(int d)const;
+	unsigned char*getSurface(int d);
+	const unsigned char*getSurface(int d)const;
 
 public:
 
@@ -51,7 +51,7 @@ public:
 	Vector2d Size;
 	EPixelFormat format;
 	ulong	imageDataSize;
-	uchar* imageData;
+	unsigned char* imageData;
 
 	ImageInfo* tmpBuffer;
 };

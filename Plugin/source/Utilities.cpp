@@ -8,6 +8,10 @@
 
 #include "Utilities.hpp"
 
+#include <algorithm> 
+#include <functional> 
+#include <cctype>
+#include <locale>
 
 void split(const std::string &s, char delim, std::vector<std::string> &elems) {
     std::stringstream ss;

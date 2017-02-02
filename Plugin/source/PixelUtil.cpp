@@ -632,7 +632,7 @@ EPixel_TYPE PixelUtil::getPixelType(EPixelFormat f){
 	return getPixelDescription(f).type;
 }
 
-int PixelUtil::unpackColor(const uchar*src,EPixelFormat f,float &r,float &g,float&b,float&a){
+int PixelUtil::unpackColor(const unsigned char*src,EPixelFormat f,float &r,float &g,float&b,float&a){
 
 	const PixelDescriptor& desc=getPixelDescription(f);
 
@@ -643,24 +643,24 @@ int PixelUtil::unpackColor(const uchar*src,EPixelFormat f,float &r,float &g,floa
 		switch(f){
 
 		case EPixel_Float16_R:
-			r=g=b=((const ushort*)src)[0];
+			r=g=b=((const unsigned short*)src)[0];
 			a=1;
 			break;
 		case EPixel_Float16_RGB:
-			r=((const ushort*)src)[0];
-			g=((const ushort*)src)[1];
-			b=((const ushort*)src)[2];
+			r=((const unsigned short*)src)[0];
+			g=((const unsigned short*)src)[1];
+			b=((const unsigned short*)src)[2];
 			a=1;
 			break;
 		case EPixel_Float16_RGBA:
-			r=((const ushort*)src)[0];
-			g=((const ushort*)src)[1];
-			b=((const ushort*)src)[2];
-			a=((const ushort*)src)[3];
+			r=((const unsigned short*)src)[0];
+			g=((const unsigned short*)src)[1];
+			b=((const unsigned short*)src)[2];
+			a=((const unsigned short*)src)[3];
 			break;
 		case EPixel_Float16_GR:
-			g=((const ushort*)src)[0];
-			r=b=((const ushort*)src)[1];
+			g=((const unsigned short*)src)[0];
+			r=b=((const unsigned short*)src)[1];
 			a=1;
 			break;
 
