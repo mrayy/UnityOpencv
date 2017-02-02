@@ -1,5 +1,12 @@
 
- 
+#ifdef DARKNET_SUPPORT
+
+#ifdef DEBUG
+	#pragma comment(lib,"darknetd.lib")
+#else 
+	#pragma comment(lib,"darknet.lib")
+#endif
+
 #include "DarkNetDetector.h"
 #include "DarknetAPI.h"
 
@@ -84,3 +91,5 @@ char* DarknetDetector::GetClassName( int ID)
 {
 	return DN_GetClassName(_instance, ID);
 }
+
+#endif

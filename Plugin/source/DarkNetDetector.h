@@ -4,6 +4,8 @@
 #ifndef DARKNETDETECTOR_H
 #define	DARKNETDETECTOR_H
 
+#ifdef DARKNET_SUPPORT
+
 #include <string>
 #include "ImageInfo.h"
 #include "opencv/cv.hpp"
@@ -39,6 +41,8 @@ private:
 	vector<float> _probabilities;
 	vector<int> _classes;
 };
+
+#endif
 
 #endif	/* DARKNETDETECTOR_H */
 

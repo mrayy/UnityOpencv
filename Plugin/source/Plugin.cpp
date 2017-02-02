@@ -80,7 +80,7 @@ UNITY_INTERFACE_EXPORT bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,
     return false;
 }
 
-
+#ifdef DARKNET_SUPPORT
 UNITY_INTERFACE_EXPORT void* DN_Create(const char* datacfg, const char* cfgfile, const char* weightfile, float threshold, int gpuIndex) {
 	
 	DarknetDetector* inst = new DarknetDetector(datacfg,cfgfile,weightfile,threshold,gpuIndex);
@@ -109,3 +109,5 @@ UNITY_INTERFACE_EXPORT char* DN_GetClass(void* ptr, int ID)
 	return inst->GetClassName( ID);
 
 }
+
+#endif

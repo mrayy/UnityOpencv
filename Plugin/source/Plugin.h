@@ -37,12 +37,13 @@ extern "C"  {
 	UNITY_INTERFACE_EXPORT void ObjectTracker_Destroy(void* ptr);
 	UNITY_INTERFACE_EXPORT void ObjectTracker_BindImage(void* ptr,ImageInfo* ifo);
 	UNITY_INTERFACE_EXPORT bool ObjectTracker_TrackInImage(void* ptr,ImageInfo* ifo,float& retX,float& retY);
-    
+
+#ifdef DARKNET_SUPPORT
 	UNITY_INTERFACE_EXPORT void* DN_Create(const char* datacfg, const char* cfgfile, const char* weightfile,float threshold,int gpuIndex);
 	UNITY_INTERFACE_EXPORT void DN_Destroy(void* ptr);
 	UNITY_INTERFACE_EXPORT void DN_BindImage(void* ptr, ImageInfo* ifo);
 	UNITY_INTERFACE_EXPORT int DN_Predict(void* ptr, float**regions, float**prob, int**classes);
 	UNITY_INTERFACE_EXPORT char* DN_GetClass(void* ptr, int ID);
-
+#endif
 
 }
