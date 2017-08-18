@@ -1,6 +1,7 @@
 #pragma once
 
 
+#ifdef USE_DN
 #ifndef DARKNETDETECTOR_H
 #define	DARKNETDETECTOR_H
 
@@ -43,4 +44,4 @@ private:
 #endif	/* DARKNETDETECTOR_H */
 
 
-
+#endif

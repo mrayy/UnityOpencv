@@ -9,6 +9,7 @@
 
 using namespace std;
 using namespace cv;
+class CVVideoCapture;
 
 class FaceTemplate
 {
@@ -22,6 +23,7 @@ class FaceDetector {
 public:
     FaceDetector(
             const string &cascadePath,
+			float resizeFactor,
             double scaleFactor,
             int    minNeighbors,
             double minSizeRatio,
@@ -29,14 +31,18 @@ public:
     virtual ~FaceDetector();
     
     void bindImage(const Mat& img);
+	void bindFromCamera(CVVideoCapture* cap);
     int findFaces(float** faces);//vector<Rect> &res);
 private:
     Mat _img;
     CascadeClassifier _cascade;
-    double _scaleFactor;
+	float _resizeFactor;
+	double _scaleFactor;
     int    _minNeighbors;
     double _minSizeRatio;
     double _maxSizeRatio;
+	CVVideoCapture* _cap;
+
     
     vector<Rect> faces;
     vector<float> facePosArr;

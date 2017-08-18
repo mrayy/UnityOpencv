@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\CVVideoCapture.cpp" />
     <ClCompile Include="..\source\DarknetDetector.cpp" />
     <ClCompile Include="..\source\FaceDetector.cpp" />
     <ClCompile Include="..\source\ImageInfo.cpp" />
@@ -151,6 +152,13 @@
     <ClCompile Include="..\source\PersonRecognizer.cpp" />
     <ClCompile Include="..\source\PixelUtil.cpp" />
     <ClCompile Include="..\source\Plugin.cpp" />
+    <ClCompile Include="..\source\RenderAPI.cpp" />
+    <ClCompile Include="..\source\RenderAPI_D3D11.cpp" />
+    <ClCompile Include="..\source\RenderAPI_D3D12.cpp" />
+    <ClCompile Include="..\source\RenderAPI_D3D9.cpp" />
+    <ClCompile Include="..\source\RenderAPI_OpenGL2.cpp" />
+    <ClCompile Include="..\source\RenderAPI_OpenGLCoreES.cpp" />
+    <ClCompile Include="..\source\UnityGraphicsDevice.cpp" />
     <ClCompile Include="..\source\UnityHelpers.cpp" />
     <ClCompile Include="..\source\Utilities.cpp" />
   </ItemGroup>
@@ -159,15 +167,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\source\common.h" />
+    <ClInclude Include="..\source\CVVideoCapture.h" />
     <ClInclude Include="..\source\DarkNetDetector.h" />
     <ClInclude Include="..\source\defs.h" />
     <ClInclude Include="..\source\FaceDetector.h" />
+    <ClInclude Include="..\source\GraphicsInclude.h" />
     <ClInclude Include="..\source\ImageInfo.h" />
     <ClInclude Include="..\source\mTypes.h" />
     <ClInclude Include="..\source\ObjectTracker.hpp" />
     <ClInclude Include="..\source\PersonRecognizer.h" />
     <ClInclude Include="..\source\PixelUtil.h" />
+    <ClInclude Include="..\source\PlatformBase.h" />
+    <ClInclude Include="..\source\RenderAPI.h" />
     <ClInclude Include="..\source\stdafx.h" />
+    <ClInclude Include="..\source\UnityGraphicsDevice.h" />
     <ClInclude Include="..\source\UnityHelpers.h" />
     <ClInclude Include="..\source\Utilities.hpp" />
     <ClInclude Include="..\source\videoCommon.h" />

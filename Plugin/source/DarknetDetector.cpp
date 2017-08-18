@@ -1,5 +1,6 @@
 
- 
+
+#ifdef USE_DN 
 #include "DarkNetDetector.h"
 #include "DarknetAPI.h"
 
@@ -84,3 +85,4 @@ char* DarknetDetector::GetClassName( int ID)
 {
 	return DN_GetClassName(_instance, ID);
 }
+#endif

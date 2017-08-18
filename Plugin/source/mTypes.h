@@ -5,7 +5,7 @@
 
 namespace mray{
 
-//typedef unsigned	char	unsigned char;
+typedef unsigned	char	uchar;
 //typedef signed		char	schar;
 
 typedef unsigned	int		uint;
