@@ -25,6 +25,7 @@ bool CVVideoCapture::Open(int device)
 	_captureDevice = new cv::VideoCapture(_index);
 	if (!_captureDevice->isOpened())
 		return false;
+	_captureDevice->set(CV_CAP_PROP_FOURCC, CV_FOURCC('M','J','P','G'));
 	_width = _captureDevice->get(CV_CAP_PROP_FRAME_WIDTH);
 	_height = _captureDevice->get(CV_CAP_PROP_FRAME_HEIGHT);
 	return true;
@@ -63,7 +64,7 @@ bool CVVideoCapture::GetFrame()
 bool CVVideoCapture::ToImage(video::ImageInfo* ifo, int x, int y, int w, int h)
 {
 	if (!IsOpen())return false;
-	if (x > 0 || y > 0 || w < _width || h < _height) {
+	if (_frame.data && (x > 0 || y > 0 || w < _width || h < _height)) {
 		cv::Mat m(_frame, cv::Rect(x, y, w, h));
 		cv::Mat croppedImage;
 		m.copyTo(croppedImage);

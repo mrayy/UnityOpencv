@@ -35,7 +35,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -94,13 +94,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UnityOpenCV Plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../includes;../includes/Win32;../sources;D:\Development\opencv\build\include;D:\Development\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../includes;../includes/Win32;../sources;$(OPENCV_SDK)\include;$(OPENCV_SDK)\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>darknetd.lib;opencv_contrib2413.lib;opencv_core2413.lib;opencv_features2d2413.lib;opencv_highgui2413.lib;opencv_imgproc2413.lib;opencv_flann2413.lib;opencv_objdetect2413.lib;opencv_calib3d2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Development\opencv\build\x64\vc12\lib\;..\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_contrib2413.lib;opencv_core2413.lib;opencv_features2d2413.lib;opencv_highgui2413.lib;opencv_imgproc2413.lib;opencv_flann2413.lib;opencv_objdetect2413.lib;opencv_calib3d2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OPENCV_SDK)\x64\vc12\lib;..\lib;$(CUDA_PATH)lib\$(PlatformName);$(cudnn)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,15 +132,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;UnityOpenCV Plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;../includes;../includes/Win32;../sources;D:\Development\opencv\build\include;D:\Development\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../includes;../includes/Win32;../sources;$(OPENCV_SDK)\include;$(OPENCV_SDK)\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>darknet.lib;opencv_contrib2413.lib;opencv_core2413.lib;opencv_features2d2413.lib;opencv_highgui2413.lib;opencv_imgproc2413.lib;opencv_flann2413.lib;opencv_objdetect2413.lib;opencv_calib3d2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Development\opencv\build\x64\vc12\lib;..\lib;$(CUDA_PATH)lib\$(PlatformName);$(cudnn)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_contrib2413.lib;opencv_core2413.lib;opencv_features2d2413.lib;opencv_highgui2413.lib;opencv_imgproc2413.lib;opencv_flann2413.lib;opencv_objdetect2413.lib;opencv_calib3d2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OPENCV_SDK)\x64\vc12\lib;..\lib;$(CUDA_PATH)lib\$(PlatformName);$(cudnn)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

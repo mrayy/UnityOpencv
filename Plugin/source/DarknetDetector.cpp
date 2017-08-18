@@ -4,6 +4,8 @@
 #include "DarkNetDetector.h"
 #include "DarknetAPI.h"
 
+#pragma comment (lib,"darknet.lib")
+
 DarknetDetector::DarknetDetector(
 	const string &datacfg,
 	const string &cfgfile,

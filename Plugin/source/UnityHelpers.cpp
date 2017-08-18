@@ -92,7 +92,7 @@ void LogManager::LogMessage(const std::string& msg)
 
 
 
-void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
+void CopyToTexture(const ImageInfo* src, unsigned char* dst,video::EPixelFormat fmt)
 {
 	if (fmt == video::EPixel_I420 || fmt==video::EPixelFormat::EPixel_LUMINANCE8
 		|| fmt == video::EPixelFormat::EPixel_R8G8B8 || fmt == video::EPixelFormat::EPixel_B8G8R8
@@ -103,8 +103,8 @@ void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
 		return;
 	}
 	int len = src->Size.x*src->Size.y * 3;
-	uchar* ptr = dst;
-	uchar* srcPtr = src->imageData;
+	unsigned char* ptr = dst;
+	unsigned char* srcPtr = src->imageData;
 	for (int i = 0; i < len; i += 3)
 	{
         if(src->format==video::EPixelFormat::EPixel_R8G8B8 )
@@ -133,7 +133,7 @@ void CopyToTexture(const ImageInfo* src, uchar* dst,video::EPixelFormat fmt)
 	}
 }
 
-void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHeight,uchar** data,int* pitch,int* comps)
+void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHeight,unsigned char** data,int* pitch,int* comps)
 {
     
     if (ifo->format == video::EPixel_I420 ||
@@ -141,14 +141,14 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         (ifo->format==video::EPixel_LUMINANCE8 || ifo->format==video::EPixel_Alpha8 ))
     {
         *comps=1;
-        //data = new uchar[ifo->imageDataSize];
+        //data = new unsigned char[ifo->imageDataSize];
         *pitch = _UnityTextureWidth;
         
         *data = ifo->imageData;
     }
     else
     {
-        //				data = new uchar[_UnityTextureWidth*_UnityTextureHeight * 4];
+        //				data = new unsigned char[_UnityTextureWidth*_UnityTextureHeight * 4];
         // 				pitch = _UnityTextureWidth * 3;
         // 				data = ifo->imageData;
         
@@ -159,7 +159,7 @@ void CheckData(const ImageInfo* ifo, int _UnityTextureWidth, int _UnityTextureHe
         *pitch = _UnityTextureWidth * 4;
         *data = ifo->tmpBuffer->imageData;
         *comps=4;
-        CopyToTexture(ifo, (uchar*)*data, video::EPixel_R8G8B8A8);//ifo->format);
+        CopyToTexture(ifo, (unsigned char*)*data, video::EPixel_R8G8B8A8);//ifo->format);
     }
 }
 
@@ -173,7 +173,7 @@ void BlitImage(const ImageInfo* ifo, void* _TextureNativePtr, int _UnityTextureW
         ((video::ImageInfo*)ifo)->tmpBuffer = new ImageInfo();
     
     
-    uchar* data = 0;
+    unsigned char* data = 0;
     int pitch = 0;
     int comps=1;
 
@@ -191,10 +191,10 @@ void BlitImage(const ImageInfo* ifo, void* _TextureNativePtr, int _UnityTextureW
             D3DLOCKED_RECT lr;
             d3dtex->LockRect(0, &lr, nullptr, 0);
             
-            //uchar* data = new uchar[desc.Width*desc.Height * 4];
+            //unsigned char* data = new unsigned char[desc.Width*desc.Height * 4];
             
             //memcpy((unsigned char*)lr.pBits, ifo->imageData, desc.Width*desc.Height * 3);
-            CopyToTexture(ifo, (uchar*)lr.pBits,ifo->format);
+            CopyToTexture(ifo, (unsigned char*)lr.pBits,ifo->format);
             
             d3dtex->UnlockRect(0);
             //delete [] data;
