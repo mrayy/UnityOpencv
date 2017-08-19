@@ -58,10 +58,10 @@ int FaceDetector::findFaces(float** pos) {
     for(int i=0;i<faces.size();++i)
     {
         Rect& r=faces[i];
-        facePosArr[i*4+0]=(r.x);
-        facePosArr[i*4+1]=(r.y);
-        facePosArr[i*4+2]=(r.width);
-        facePosArr[i*4+3]=(r.height);
+        facePosArr[i*4+0]=(r.x/ _resizeFactor);
+        facePosArr[i*4+1]=(r.y / _resizeFactor);
+        facePosArr[i*4+2]=(r.width / _resizeFactor);
+        facePosArr[i*4+3]=(r.height / _resizeFactor);
     }
     
     if(facePosArr.size()>0)
