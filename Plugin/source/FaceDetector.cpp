@@ -19,7 +19,7 @@ FaceDetector::FaceDetector(
 	{
 		printf("Failed to load cascades!\n");
 	}
-	//namedWindow(windowName, WINDOW_AUTOSIZE);
+	namedWindow(windowName, WINDOW_AUTOSIZE);
 }
 
 FaceDetector::~FaceDetector() {}
@@ -38,15 +38,17 @@ int FaceDetector::findFaces(float** pos) {
 		if (!_cap->GetFrame())
 			return 0;
 		cvtColor(_cap->LastFrame(), _img, CV_BGR2GRAY);
-		if(_resizeFactor<1)
-			cv::resize(_img, _img, Size(_img.cols*_resizeFactor, _img.rows*_resizeFactor));
 	//	imshow(windowName, _img);
 	//	cv::waitKey(1);
 	}
+	if (_resizeFactor < 1)
+		cv::resize(_img, _img, Size(_img.cols*_resizeFactor, _img.rows*_resizeFactor));
 	Size minScaleSize = Size(_img.cols*_minSizeRatio, _img.rows*_minSizeRatio),// Size(70, 70), //at least 60x60 face size, to avoid noisy results
          maxScaleSize = Size(_img.cols*_maxSizeRatio, _img.rows*_maxSizeRatio);
     
-    
+
+	imshow(windowName, _img);
+	cv::waitKey(1);
     //clear the vector:
     faces.clear();
     

@@ -63,7 +63,7 @@ int PersonRecognizer::Recognize(float &confidence,float* f) const {
     
     Rect face=Rect(f[0],f[1],f[2],f[3]);
     Mat face_img = _img(face);
-    resize(face_img, face_img, _faceSize);
+	resize(face_img, face_img, _faceSize);
     //try to recognize the face:
     double conf;
     _model->predict(face_img, label, conf);

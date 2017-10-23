@@ -22,7 +22,7 @@
     <ProjectGuid>{8FB9AD24-E1C7-4C44-BD0E-CA167AF44482}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>UnityOpenCV Plugin</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>UnityOpenCV</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)/Microsoft.Cpp.Default.props" />
@@ -95,6 +95,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UnityOpenCV Plugin_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./;../includes;../includes/Win32;../sources;$(OPENCV_SDK)\include;$(OPENCV_SDK)\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
